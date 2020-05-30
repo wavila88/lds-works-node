@@ -1,0 +1,18 @@
+{
+  "name": "agustin-navarro-galdon-backend",
+  "version": "0.0.1",
+  "description": "Backend para la web www.AgustinNavarroGaldon.com",
+  "main": "index.js",
+  "author": "Agustin Navarro Galdon",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "global": "^4.4.0",
+    "mongodb": "^3.5.7",
+    "mongoose": "^5.9.15",
+    "nodemon": "^1.19.2"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
+  }
+}
