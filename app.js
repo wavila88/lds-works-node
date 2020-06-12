@@ -6,7 +6,8 @@ const app = express();
 const { API_VERSION } = require("./config");
 
 //Conecting to db
-mongoose.connect('mongodb://Localhost/lds_work')
+//mongoose.connect('mongodb://Localhost/lds_work')
+mongoose.connect('mongodb+srv://root:1234@lds-work-dmkcf.mongodb.net/lds-work?retryWrites=true&w=majority')
 .then(db => console.log("DB Conectado"))
 .catch(err => console.log("Error conectando", err))
 
