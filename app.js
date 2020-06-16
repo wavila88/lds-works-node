@@ -12,7 +12,7 @@ mongoose.connect('mongodb+srv://root:1234@lds-work-dmkcf.mongodb.net/lds-work?re
 .catch(err => console.log("Error conectando", err))
 
 // Load routings
-const messageRoutes = require("./routers/usuarios");
+const messageRoutes = require("./routers/routes");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
