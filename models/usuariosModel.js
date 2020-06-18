@@ -7,6 +7,9 @@ const UsuariosModel =new Schema ({
     descripcionServicios: String,
     celular: { type : String , unique : true, required : true },
     correo: { type : String , unique : true, required : true },
+    nombreEstaca: { type: Schema.ObjectId, ref: "estacas" },
+    nombreBarrio: { type: Schema.ObjectId, ref: "barrios" },
+    nombreCiudad: { type: Schema.ObjectId, ref: "ciudades" },
 })
 
 module.exports = mongoose.model('usuarios', UsuariosModel);

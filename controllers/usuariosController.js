@@ -1,14 +1,24 @@
 const UsuariosModel = require('../models/usuariosModel');
 
 
-async function getAllUsuarios(req, res) {
+const getAllUsuarios = (req, respuesta) =>{
   // const usuarios = req.body.nombres;
   // const json = {nombres : "William Miguel"}
-  const response = await UsuariosModel.find();
-  console.log(response);
-
-
-  res.status(200).send(response);
+  const p = new Promise((resolve,reject) =>{
+    const response =  UsuariosModel.find();
+    
+    resolve(response);
+  });
+ 
+    p.then(
+      res =>
+      { 
+        respuesta.status(200).send(res);
+      }).catch(err =>
+      { 
+        respuesta.status(200).send("Error: ",  err);
+      })
+      
 }
 
 async function getUsuario(req, res) {
