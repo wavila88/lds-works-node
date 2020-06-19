@@ -1,23 +1,32 @@
 const BarrioModel = require('../models/barrioModel');
 
 
-async function getbarrios(req, res) {
- 
-  var id = req.nombreEstaca;
-  console.log("req",req.body);
-  const response = await BarrioModel.find(req.body);
-  res.status(200).send(response);
+function getbarrios(req, res) {
+  const p = new Promise((resolve, reject) => {
+    var id = req.nombreEstaca;
+    const response = BarrioModel.find(req.body);
+
+    resolve(response);
+  });
+
+  p.then(
+    res => {
+      respuesta.status(200).send(res);
+    }).catch(err => {
+      respuesta.status(400).send("Error: ", err);
+    })
+
 }
 
 async function setBarrio(req, res) {
   const modelo = new BarrioModel(req.body);
- console.log("Request", req.body);
+  console.log("Request", req.body);
   try {
     await modelo.save();
     await res.status(200).send({ respuesta: "Barrio Creado." });
   } catch (err) {
     console.log("Error Creando barrio", err)
-   await res.status(400).send({ mensaje: "Error Creando el barrio", detalles: err })
+    await res.status(400).send({ mensaje: "Error Creando el barrio", detalles: err })
   }
   return res;
 }
