@@ -1,10 +1,11 @@
 const BarrioModel = require('../models/barrioModel');
 
 
-function getbarrios(req, res) {
+function getbarrios(req, respuesta) {
+ 
   const p = new Promise((resolve, reject) => {
-    var id = req.nombreEstaca;
-    const response = BarrioModel.find(req.body);
+    const filter = {nombreEstaca : req.params.id}
+    const response = BarrioModel.find(filter);
 
     resolve(response);
   });

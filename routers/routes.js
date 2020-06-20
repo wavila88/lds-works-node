@@ -27,7 +27,7 @@ api.delete("/UserArea/:id", userAreaController.deleteUserArea);
 //Ciudad
 api.get("/ciudad", ciudadController.getAllciudades);
 //Barrio
-api.get("/barrio", barrioController.getbarrios);
+api.get("/barrio/:id", barrioController.getbarrios);
 
 api.post("/barrio", barrioController.setBarrio);
 
