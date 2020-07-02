@@ -4,6 +4,7 @@ const ciudadController = require('../controllers/ciudadController');
 const userAreaController = require('../controllers/usuarioAreaController');
 const barrioController = require('../controllers/barrioController');
 const estacaController = require('../controllers/estacaController');
+const sectorTrabajoController = require('../controllers/sectorTrabajoController');
 
 const api = express.Router();
 
@@ -34,6 +35,7 @@ api.post("/barrio", barrioController.setBarrio);
 api.delete("/barrio/:id", barrioController.deleteBarrio);
 //Estaca
 api.get("/estaca", estacaController.getAllestacas);
-
+//Sector Trabajo
+api.get("/getSector", sectorTrabajoController.getAllsectorTrabajo);
 
 module.exports = api;
