@@ -10,6 +10,7 @@ const UsuariosModel =new Schema ({
     nombreEstaca: { type: Schema.ObjectId, ref: "estacas" },
     nombreBarrio: { type: Schema.ObjectId, ref: "barrios" },
     nombreCiudad: { type: Schema.ObjectId, ref: "ciudades" },
+    sector: { type: Schema.ObjectId, ref: "sectores" },
 })
 
 module.exports = mongoose.model('usuarios', UsuariosModel);
