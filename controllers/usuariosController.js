@@ -5,7 +5,35 @@ const getAllUsuarios = (req, respuesta) =>{
   // const usuarios = req.body.nombres;
   // const json = {nombres : "William Miguel"}
   const p = new Promise((resolve,reject) =>{
-    const response =  UsuariosModel.find();
+    const response =  UsuariosModel.aggregate([
+      {
+        $lookup:
+          {
+            from: "barrios",
+            localField: "nombreBarrio",
+            foreignField: "_id",
+            as: "Barrio"
+          }
+     },
+      {
+        $lookup:
+          {
+            from: "sectores",
+            localField: "sector",
+            foreignField: "_id",
+            as: "Sector"
+          }
+     },
+       {
+        $lookup:
+          {
+            from: "ciudades",
+            localField: "nombreCiudad",
+            foreignField: "_id",
+            as: "Ciudad"
+          }
+     },
+   ])
     
     resolve(response);
   });
