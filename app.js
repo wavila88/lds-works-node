@@ -14,8 +14,9 @@ mongoose.connect('mongodb+srv://root:1234@lds-work-dmkcf.mongodb.net/lds-work?re
 // Load routings
 const messageRoutes = require("./routers/routes");
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+
 
 // Configure Header HTTP
 app.use((req, res, next) => {
