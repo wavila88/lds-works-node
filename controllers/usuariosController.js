@@ -33,6 +33,15 @@ const getAllUsuarios = (req, respuesta) =>{
             as: "Ciudad"
           }
      },
+     {
+      $lookup:
+        {
+          from: "estacas",
+          localField: "nombreEstaca",
+          foreignField: "_id",
+          as: "Estaca"
+        }
+   },
    ])
     
     resolve(response);

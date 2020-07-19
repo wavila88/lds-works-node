@@ -11,7 +11,7 @@ const api = express.Router();
 //Usuario
 api.get("/getUsers", usuariosController.getAllUsuarios);
 
-api.get("/User", usuariosController.getUsuario);
+api.post("/getUser", usuariosController.getUsuario);
 
 api.post("/User", usuariosController.setUser);
 
